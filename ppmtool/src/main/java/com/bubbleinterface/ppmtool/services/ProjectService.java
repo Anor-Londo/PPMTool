@@ -14,4 +14,17 @@ public class ProjectService {
     public Project saveOrUpdateProject(Project project){
         return projectRepository.save(project);
     }
+
+    public Project findProjectByIdentifier(String projectId){
+        return projectRepository.findByProjectIdentifier(projectId);
+    }
+
+    public Iterable<Project> findAllProject(){
+        return projectRepository.findAll();
+    }
+
+    public void deleteProjectByIdentifier(String projectId){
+        Project project = projectRepository.findByProjectIdentifier(projectId);
+        projectRepository.delete(project);
+    }
 }
